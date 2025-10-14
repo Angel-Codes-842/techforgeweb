@@ -21,7 +21,7 @@ const Contact = () => {
                 className="bg-secondary text-charcoal font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300 inline-flex items-center"
             >
                 <Mail className="w-6 h-6 mr-3" />
-                Aquí
+                Enviar un correo
             </a>
             <p className="text-light-gray pt-4">O envíanos un mensaje directo:</p>
             <a 
