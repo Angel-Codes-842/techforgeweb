@@ -1,0 +1,8 @@
+<svg width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .tech-text { font: bold 30px sans-serif; fill: #FFFFFF; }
+    .forge-text { font: bold 30px sans-serif; fill: #00ff88; }
+  </style>
+  <text x="10" y="35" class="tech-text">Tech</text>
+  <text x="85" y="35" class="forge-text">Forge</text>
+</svg>
