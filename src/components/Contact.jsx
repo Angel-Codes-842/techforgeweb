@@ -1,40 +1,104 @@
 import React from 'react';
-import { Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Mail, MessageCircle, ArrowRight, Send, MapPin, Clock } from 'lucide-react';
 
 const Contact = () => {
-  const whatsappNumber = "595975628945"; 
-  const whatsappMessage = "Hola, estoy interesado en sus servicios y me gustaría solicitar una cotización.";
-
+  const whatsappNumber = "595975628945";
+  const whatsappMessage = "Hola, estoy interesado en sus servicios de desarrollo web y me gustaría solicitar una cotización.";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
-    <section id="contact" className="py-20 bg-dark-bg">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white">¿Listo para empezar?</h2>
-        <p className="text-gray-400 mt-4 max-w-xl mx-auto">
-          Contáctanos para obtener una cotización sin compromiso o para discutir tu próximo proyecto tecnológico.
-        </p>
-        <div className="mt-8 flex flex-col gap-4 items-center">
-            <p className="text-light-gray">Puedes contactarnos por correo electrónico:</p>
-            <a 
-                href="mailto:hernan17ayala@gmail.com"
-                className="bg-secondary text-charcoal font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300 inline-flex items-center"
+    <section id="contact" className="relative py-24 overflow-hidden">
+      <div className="absolute top-0 left-0 right-0 section-divider" />
+      <div className="absolute inset-0 grid-bg opacity-20" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto">
+          {/* Header */}
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="section-badge mb-4">
+              <Send size={14} />
+              Contacto
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-white mt-4">
+              ¿Tienes un proyecto en <span className="gradient-text">mente</span>?
+            </h2>
+            <p className="text-gray-400 mt-4 max-w-xl mx-auto text-lg">
+              Hagamos realidad tu próxima idea. Contáctanos y recibe una cotización sin compromiso.
+            </p>
+          </motion.div>
+
+          {/* Contact Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            {/* WhatsApp Card */}
+            <motion.a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group glass-card rounded-2xl p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-                <Mail className="w-6 h-6 mr-3" />
-                Enviar un correo
-            </a>
-            <p className="text-light-gray pt-4">O envíanos un mensaje directo:</p>
-            <a 
-                href={whatsappUrl}
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="bg-primary text-charcoal font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition duration-300 inline-flex items-center"
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-green-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                <MessageCircle size={28} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">WhatsApp</h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Respuesta rápida. Envíanos un mensaje directo y te contestamos al instante.
+              </p>
+              <span className="inline-flex items-center gap-2 text-emerald-400 font-semibold text-sm group-hover:gap-3 transition-all">
+                Enviar mensaje <ArrowRight size={16} />
+              </span>
+            </motion.a>
+
+            {/* Email Card */}
+            <motion.a
+              href="mailto:hernan17ayala@gmail.com"
+              className="group glass-card rounded-2xl p-8 flex flex-col items-center text-center hover:-translate-y-2 transition-all duration-500"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-                <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.357 1.849 6.081l-1.214 4.439 4.562-1.195z" />
-                </svg>
-                Enviar mensaje por WhatsApp
-            </a>
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                <Mail size={28} className="text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">Email</h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Para propuestas detalladas o documentación de proyectos. Te respondemos en 24h.
+              </p>
+              <span className="inline-flex items-center gap-2 text-secondary font-semibold text-sm group-hover:gap-3 transition-all">
+                Enviar correo <ArrowRight size={16} />
+              </span>
+            </motion.a>
+          </div>
+
+          {/* Info strip */}
+          <motion.div
+            className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <div className="flex items-center gap-3 text-gray-400">
+              <MapPin size={18} className="text-primary" />
+              <span className="text-sm">Paraguay</span>
+            </div>
+            <div className="flex items-center gap-3 text-gray-400">
+              <Clock size={18} className="text-primary" />
+              <span className="text-sm">Lun - Sáb, 8:00 - 18:00</span>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

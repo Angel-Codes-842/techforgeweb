@@ -2,17 +2,19 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
+
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen font-sans bg-gradient-to-b from-charcoal to-black text-light-gray">
+    <div className="min-h-screen font-sans bg-dark-bg text-gray-300">
       <Navbar />
       <main>
         <Hero />
         <Services />
+
         <About />
         <Contact />
       </main>
